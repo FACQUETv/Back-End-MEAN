@@ -21,10 +21,9 @@ exports.getTodos = async function(req, res, next){
 // HTTP POST
 exports.createTodo = async function(req, res, next){
     var todo = {
-        address : req.body.address,
+        id : req.body._id,
         borough : req.body.borough,
         cuisine : req.body.status,
-        grades : req.body.score,
         name : req.body.name,
         restaurant_id : req.body.restaurant_id
     }
@@ -50,9 +49,10 @@ exports.updateTodo = async function(req, res, next){
 
     var todo = {
         id,
-        title: req.body.title ? req.body.title : null,
-        description: req.body.description ? req.body.description : null,
-        status: req.body.status ? req.body.status : null
+        borough: req.body.borough ? req.body.borough : null,
+        cuisine: req.body.cuisine ? req.body.cuisine : null,
+        name: req.body.name ? req.body.name : null,
+        restaurant_id: req.body.restaurant_id ? req.body.restaurant_id : null
     }
 
     try{

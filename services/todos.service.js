@@ -19,10 +19,11 @@ exports.getTodos = async function(query, page, limit){
 exports.createTodo = async function(todo){
 
     var newTodo = new ToDo({
-        title: todo.title,
-        description: todo.description,
-        date: new Date(),
-        status: todo.status
+        borough: todo.borough,
+        cuisine: todo.cuisine,
+        status: todo.status,
+        name: todo.name,
+        restaurant_id: todo.restaurant_id
     })
 
     try{
@@ -48,9 +49,10 @@ exports.updateTodo = async function(todo){
 
     console.log(oldTodo)
 
-    oldTodo.title = todo.title
-    oldTodo.description = todo.description
-    oldTodo.status = todo.status
+    oldTodo.borough = todo.borough
+    oldTodo.cuisine = todo.cuisine
+    oldTodo.name = todo.name
+    oldTodo.restaurant_id = todo.restaurant_id
 
 
     console.log(oldTodo)
