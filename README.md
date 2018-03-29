@@ -2,7 +2,8 @@
 Projet basé la stack MEAN (Mongo Express Angular NodeJs)
 
 # Parti Back-end 
-Repository du back-end 
+Repository du back-end.
+Necessite l'installation de MongoDB. La database doit tourné @ ```127.0.0.1:27017 ```
 
 # Lancer le projet
 
