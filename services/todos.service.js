@@ -17,16 +17,16 @@ exports.getTodos = async function(query, page, limit){
 }
 
 exports.createTodo = async function(todo){
-
-    var newTodo = new ToDo({
+    var newTodo = new ToDo({       
         borough: todo.borough,
         cuisine: todo.cuisine,
-        status: todo.status,
         name: todo.name,
-        restaurant_id: todo.restaurant_id
+        restaurant_id: todo.restaurant_id,
+        address : todo.address
     })
 
     try{
+        
         var savedTodo = await newTodo.save()
         return savedTodo;
     }catch(e){
@@ -35,6 +35,7 @@ exports.createTodo = async function(todo){
 }
 
 exports.updateTodo = async function(todo){
+    console.log("---- updateTodo")
     var id = todo.id
 
     try{
@@ -54,10 +55,10 @@ exports.updateTodo = async function(todo){
     oldTodo.name = todo.name
     oldTodo.restaurant_id = todo.restaurant_id
 
-
     console.log(oldTodo)
 
     try{
+        console.log("appel de oldTodo.save()")
         var savedTodo = await oldTodo.save()
         return savedTodo;
     }catch(e){
@@ -69,7 +70,7 @@ exports.deleteTodo = async function(id){
     
     try{
         var deleted = await ToDo.remove({_id: id})
-        if(deleted.result.n === 0){
+        if(deleted.n === 0){
             throw Error("Todo Could not be deleted")
         }
         return deleted

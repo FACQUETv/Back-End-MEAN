@@ -22,6 +22,10 @@ exports.getTodos = async function(req, res, next){
 exports.createTodo = async function(req, res, next){
     var todo = {
         id : req.body._id,
+        address : {building : req.body.building,
+                   coord : req.body.coord,
+                   street : req.body.street,
+                   zipcode : req.body.zipcode},
         borough : req.body.borough,
         cuisine : req.body.status,
         name : req.body.name,
@@ -39,11 +43,12 @@ exports.createTodo = async function(req, res, next){
 // HTTP PUT
 exports.updateTodo = async function(req, res, next){
 
+
+    var id = req.body.id;
+
     if(!req.body._id){
         return res.status(400).json({status: 400., message: "Id must be present"})
     }
-
-    var id = req.body._id;
 
     console.log(req.body)
 
@@ -57,7 +62,7 @@ exports.updateTodo = async function(req, res, next){
 
     try{
         var updatedTodo = await TodoService.updateTodo(todo)
-        return res.status(200).json({status: 200, data: updatedTodo, message: "Succesfully Updated Tod"})
+        return res.status(200).json({status: 200, data: updatedTodo, message: "Succesfully Updated"})
     }catch(e){
         return res.status(400).json({status: 400., message: e.message})
     }
