@@ -3,7 +3,7 @@ var mongoosePaginate = require('mongoose-paginate')
 
 
 var ToDoSchema = new mongoose.Schema({
-    address: {building : String, coord : Object, street: String, zipcode : String},
+    address: {building : String, coord : String, street: String, zipcode : String},
     borough: String,
     cuisine: String,
     grades: {date: {$date: String, grade: String, score: String}},

@@ -22,6 +22,10 @@ exports.getTodos = async function(req, res, next){
 exports.createTodo = async function(req, res, next){
     var todo = {
         id : req.body._id,
+        address : {building : req.body.building,
+                   coord : req.body.coord,
+                   street : req.body.street,
+                   zipcode : req.body.zipcode},
         borough : req.body.borough,
         cuisine : req.body.status,
         name : req.body.name,
