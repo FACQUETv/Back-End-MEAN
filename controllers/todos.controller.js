@@ -29,7 +29,10 @@ exports.createTodo = async function(req, res, next){
         borough : req.body.borough,
         cuisine : req.body.status,
         name : req.body.name,
-        restaurant_id : req.body.restaurant_id
+        restaurant_id : req.body.restaurant_id,
+        grades : {score : req.body.score,
+                grade : req.body.grade,
+                $date : new Date()}
     }
 
     try{
@@ -44,7 +47,9 @@ exports.createTodo = async function(req, res, next){
 exports.updateTodo = async function(req, res, next){
 
 
-    var id = req.body.id;
+    var id = req.body._id;
+
+    console.log(id)
 
     if(!req.body._id){
         return res.status(400).json({status: 400., message: "Id must be present"})
@@ -57,7 +62,14 @@ exports.updateTodo = async function(req, res, next){
         borough: req.body.borough ? req.body.borough : null,
         cuisine: req.body.cuisine ? req.body.cuisine : null,
         name: req.body.name ? req.body.name : null,
-        restaurant_id: req.body.restaurant_id ? req.body.restaurant_id : null
+        restaurant_id: req.body.restaurant_id ? req.body.restaurant_id : null,
+
+        //address: req.body.address ? req.body.address : null,
+        address :  req.body.address ? req.body.address : null ,
+        building: req.body.building ? req.body.building : null,
+        coord: req.body.coord ? req.body.coord : null,
+        street: req.body.street ? req.body.street : null,
+        zipcode: req.body.zipcode ? req.body.zipcode : null
     }
 
     try{

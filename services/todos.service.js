@@ -22,7 +22,8 @@ exports.createTodo = async function(todo){
         cuisine: todo.cuisine,
         name: todo.name,
         restaurant_id: todo.restaurant_id,
-        address : todo.address
+        address : todo.address,
+        grades : todo.grades
     })
 
     try{
@@ -48,14 +49,18 @@ exports.updateTodo = async function(todo){
         return false;
     }
 
-    console.log(oldTodo)
 
     oldTodo.borough = todo.borough
     oldTodo.cuisine = todo.cuisine
     oldTodo.name = todo.name
     oldTodo.restaurant_id = todo.restaurant_id
+    oldTodo.address = todo.address
+    oldTodo.building = todo.building
+    oldTodo.coord = todo.coord
+    oldTodo.street = todo.street
+    oldTodo.zipcode = todo.zipcode
 
-    console.log(oldTodo)
+    console.log("OLD TODO",oldTodo)
 
     try{
         console.log("appel de oldTodo.save()")
