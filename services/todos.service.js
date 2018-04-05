@@ -53,12 +53,7 @@ exports.updateTodo = async function(todo){
     oldTodo.borough = todo.borough
     oldTodo.cuisine = todo.cuisine
     oldTodo.name = todo.name
-    oldTodo.restaurant_id = todo.restaurant_id
-    oldTodo.address = todo.address
-    oldTodo.building = todo.building
-    oldTodo.coord = todo.coord
-    oldTodo.street = todo.street
-    oldTodo.zipcode = todo.zipcode
+    oldTodo.restaurant_id = todo.restaurant_id   
 
     console.log("OLD TODO",oldTodo)
 

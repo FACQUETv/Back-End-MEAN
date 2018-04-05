@@ -62,14 +62,7 @@ exports.updateTodo = async function(req, res, next){
         borough: req.body.borough ? req.body.borough : null,
         cuisine: req.body.cuisine ? req.body.cuisine : null,
         name: req.body.name ? req.body.name : null,
-        restaurant_id: req.body.restaurant_id ? req.body.restaurant_id : null,
-
-        //address: req.body.address ? req.body.address : null,
-        address :  req.body.address ? req.body.address : null ,
-        building: req.body.building ? req.body.building : null,
-        coord: req.body.coord ? req.body.coord : null,
-        street: req.body.street ? req.body.street : null,
-        zipcode: req.body.zipcode ? req.body.zipcode : null
+        restaurant_id: req.body.restaurant_id ? req.body.restaurant_id : null
     }
 
     try{
